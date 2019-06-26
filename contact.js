@@ -1,60 +1,54 @@
-document.body.style.backgroundColor ="grey";
-document.getElementById("PHONEBOOK").style.textAlign ="center";
+ //Styles the h1
+var h1 = document.querySelector("h1");
+h1.style.color = "#FF0000";
+h1.style.textAlign="center";
+var x = 0;
+var array = Array();
 
- 	var submit=document.getElementById("submit") ;
-		submit.onclick=function Contact(first_name,Last_name,phone_number,email,adress)
-{
-	var first_name=getElementById("first_name").value;
-	var Last_name=getElementById("Last_name").value;
-	var phone_number=getElementById("phone_number").value;
-	var email= getElementById("email").value;
-	var address=getElementById(["street","city","country"].value);
+// Function stores variable when you click save
+function contact_function() {
+	first_name = document.querySelector("#first_name").value;
+	//alert(fname);
+	second_name = document.querySelector("#second_name").value;
+	Phone_number = document.querySelector("#phone_number").value;
+	email = document.querySelector("#email").value;
+	address = document.querySelector("#address").value;
+	//Submitted = "true";
 
-document.getElementById("outputfirst_name").innerText=first_name
-document.getElementById("outputLast_name").innerText=Last_name
-document.getElementById("outputphone_number").innerText=phone_number
-document.getElementById("outputemail").innerText=email
-document.getElementById("outputaddress").innerText=address
+	if (first_name.length > 10 ) {
+    	alert("The First name must have no more than 10 characters");  
+    	Submitted = "false";
+	}
+	if (second_name.length >10) {
+    	alert("The Second name must have no more than 10 characters");  
+    	Submitted = "false";
+	}
+	if (first_name.length=="" || second_name.length=="" || phone_number.length==""|| email.length==""||address=="") {
+    	alert("Name field can not be empty!");  
+    	Submitted = "false";
+	}
+	else
+	array[0] =first_name;
+	array[1]=second_name;
+	array[2]=email;
+	array[3]=address;
+
+	alert("Saved!");
+	//alert(array[0]);
+	
+
 }
-Contact.prototype.full_name = function() {
-	return (this.first_name + " , " + this.Last_name)
-};
+//Function to search through saved contacts
+function search_function(){
 
-<!DOCTYPE html>
-<html>
-<head>new contact</head>
-<title>PHONEBOOK</title>
-<body>
-	<div id=PHONEBOOK> 
-	<form name="PHONEBOOK" id="PHONEBOOK" action="javascript:saveData(Contacts);">
-		First name:<br>
-  <input id="first_name"type="text" name="firstname" value="">
-  <br>
-  		Last_name name:<br>
-  <input id="Last_name" type="text" name="lastname">
-  <br>
-  		Phone number:<br>
-  <input id="phone_number"type="text" name="your digits here">
-  <br>
-  		Email:<br>
-  <input id="email" type="text" name="email address">
-  <br>
-  		Address:<br>
-  <input type="text" name="where you stay">
-  <br>
+ for (var y=0; y<array.length; y++){
+ 	var e=array[y];
+ 	
+ //  contactFields.appendChild(div);
+ }
+ // contactFields.style.display = "block";
+ //  var div = document.createElement("div");
+ //  div.innerHTML = fname.value;
+ document.getElementById("search").innerHTML = e;
+}
 
-  <button id=submit>save</button>
-
-	</div>
-	</form> </div>
-	<p>Contact list</p>
-	<span id=outputfirst_name>-----</span>
-	<span id=outputLast_name>-----</span>
-	<span id=outputphone_number>----</span>
-	<span id=outputemail>----</span>
-	<span id=outputaddress>---</span>
-
-
-<script type="text/javascript" src="contact.js"></script>
-</body>
-</html> 
